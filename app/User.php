@@ -6,6 +6,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * Class User
+ * @package App
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -43,16 +47,56 @@ class User extends Authenticatable
         'verification_token',
     ];
 
+    /**
+     * @author Octavio Cornejo <octavio.cornejo@nuvemtecnologia.mx>
+     * @param $name
+     */
+    public function setNameAttribute($name)
+    {
+        $this->attributes['name'] = strtolower($name);
+    }
+
+    /**
+     * @author Octavio Cornejo <octavio.cornejo@nuvemtecnologia.mx>
+     * @param $email
+     */
+    public function setEmailAttribute($email)
+    {
+        $this->attributes['email'] = strtolower($email);
+    }
+
+    /**
+     * @author Octavio Cornejo <octavio.cornejo@nuvemtecnologia.mx>
+     * @param $name
+     * @return string
+     */
+    public function getNameAttribute($name)
+    {
+        return ucwords($name);
+    }
+
+    /**
+     * @author Octavio Cornejo <octavio.cornejo@nuvemtecnologia.mx>
+     * @return bool
+     */
     public function isVerified()
     {
         return $this->verified == static::USER_VERIFIED;
     }
 
+    /**
+     * @author Octavio Cornejo <octavio.cornejo@nuvemtecnologia.mx>
+     * @return string
+     */
     public function isAdministrator()
     {
         return $this->admin = static::USER_ADMINISTRATOR;
     }
 
+    /**
+     * @author Octavio Cornejo <octavio.cornejo@nuvemtecnologia.mx>
+     * @return string
+     */
     public static function generateVerificationToken()
     {
         return str_random(40);
