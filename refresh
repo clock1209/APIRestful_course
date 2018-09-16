@@ -1,0 +1,25 @@
+[32mNothing to migrate.[39m
+[30;42m Initializing seeder ... [39;49m
+ 0/5 [>---------------------------]   0%[2K 1/5 [=====>----------------------]  20%[2K 2/5 [===========>----------------]  40%[2K 3/5 [================>-----------]  60%[2K 4/5 [======================>-----]  80%
+  [41;1m Illuminate\Database\QueryException [49;22m : [33mSQLSTATE[42S02]: Base table or view not found: 1146 Table 'api_restful_db.sellers' doesn't exist (SQL: select * from `sellers` where exists (select * from `products` where `sellers`.`id` = `products`.`seller_id`))[39m
+
+  at [32mC:\laragon\www\APIRestfulCourse\vendor\laravel\framework\src\Illuminate\Database\Connection.php[39m:[32m664[39m
+    [90;3m660| [0m[33m        [0m[90;3m// If an exception occurs when attempting to run a query, we'll format the error[0m
+    [90;3m661| [0m[90;3m        // message to include the bindings with SQL, which will make this exception a[0m
+    [90;3m662| [0m[90;3m        // lot more helpful to the developer instead of just the database's errors.[0m
+    [90;3m663| [0m[90;3m        [0m[33mcatch ([0m[39;1mException $e[0m[33m) {[0m
+[41;1m  > [0m[90;3m664| [0m[33m            throw new [0m[39;1mQueryException[0m[33m([0m
+    [90;3m665| [0m[33m                [0m[39;1m$query[0m[33m, [0m[39;1m$this[0m[33m->[0m[39;1mprepareBindings[0m[33m([0m[39;1m$bindings[0m[33m), [0m[39;1m$e[0m
+    [90;3m666| [0m[39;1m            [0m[33m);[0m
+    [90;3m667| [0m[33m        }[0m
+    [90;3m668| [0m
+
+  [33mException trace:[39m
+
+  [36m1   [39m[33mIlluminate\Database\Eloquent\FactoryBuilder::Illuminate\Database\Eloquent\{closure}()[39m
+      [32m[internal][39m:[32m0[39m
+
+  [36m2   [39m[33mPDOException::("SQLSTATE[42S02]: Base table or view not found: 1146 Table 'api_restful_db.sellers' doesn't exist")[39m
+      [32mC:\laragon\www\APIRestfulCourse\vendor\laravel\framework\src\Illuminate\Database\Connection.php[39m:[32m326[39m
+
+  [32mPlease use the argument [39m[31m-v[39m[32m to see more details.[39m

@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'users';
+
     const USER_VERIFIED = '1';
     const USER_NOT_VERIFIED = '0';
 
@@ -51,7 +53,7 @@ class User extends Authenticatable
         return $this->admin = static::USER_ADMINISTRATOR;
     }
 
-    public function generateVerificationToken()
+    public static function generateVerificationToken()
     {
         return str_random(40);
     }
