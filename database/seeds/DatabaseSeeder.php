@@ -27,6 +27,12 @@ class DatabaseSeeder extends Seeder
         Category::truncate();
         Transaction::truncate();
         DB::table('category_product')->truncate();
+
+        User::flushEventListeners();
+        Product::flushEventListeners();
+        Category::flushEventListeners();
+        Transaction::flushEventListeners();
+
         $this->command->getOutput()->writeln("<fg=black;bg=green> Emptied tables ... </>");
 
         $this->command->getOutput()->writeln("<fg=black;bg=green> Inserting data ... </>");

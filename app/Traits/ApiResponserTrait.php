@@ -50,4 +50,15 @@ trait ApiResponserTrait
     {
         return $this->successResponse(['data' => $instance], $code);
     }
+
+    /**
+     * @author Octavio Cornejo <octavio.cornejo@nuvemtecnologia.mx>
+     * @param $message
+     * @param int $code
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function showMessage($message, $code = 200)
+    {
+        return $this->successResponse(['data' => $message], $code);
+    }
 }
