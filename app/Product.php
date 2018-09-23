@@ -22,12 +22,16 @@ class Product extends Model
         'seller_id',
     ];
 
+    protected $hidden = [
+        'pivot'
+    ];
+
     public function seller()
     {
         return $this->belongsTo(Seller::class);
     }
 
-    public function transaction()
+    public function transactions()
     {
         return $this->hasMany(Transaction::class);
     }
