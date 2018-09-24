@@ -3,11 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Transformers\ProductTransformer;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
     use SoftDeletes;
+
+    public $transformer = ProductTransformer::class;
 
     const PRODUCT_AVAILABLE = 'disponible';
     const PRODUCT_NOT_AVAILABLE = 'no disponible';
