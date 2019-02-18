@@ -39,11 +39,31 @@ class UserTransformer extends TransformerAbstract
             'identificador' => 'id',
             'nombre' => 'name',
             'correo' => 'email',
+            'contraseña' => 'password',
+            'confirmarContraseña' => 'password_confirmation',
             'esVerificado' => 'verified',
             'esAdministrador' => 'admin',
             'fechaCreacion' => 'created_at',
             'fechaActualizacion' => 'updated_at',
             'fechaEliminación' => 'deleted_at',
+        ];
+
+        return isset($attributes[$index]) ? $attributes[$index] : null;
+    }
+
+    public static function transformedAttribute($index)
+    {
+        $attributes = [
+            'id' => 'identificador',
+            'name' => 'nombre',
+            'email' => 'correo',
+            'password' => 'contraseña',
+            'password_confirmation' => 'confirmarContraseña',
+            'verified' => 'esVerificado',
+            'admin' => 'esAdministrador',
+            'created_at' => 'fechaCreacion',
+            'updated_at' => 'fechaActualizacion',
+            'deleted_at' => 'fechaEliminación',
         ];
 
         return isset($attributes[$index]) ? $attributes[$index] : null;
